@@ -22,7 +22,7 @@ to run the following commands you must be at the project root
 
 > javac -d target/production/ppt-remote/ -verbose -encoding UTF-8 src/ai/geissler/Main.java
 
-#### If you want to run the App as a Java Archive:
+#### Packaging the App into a .jar
 > jar -cvfm ppt-remote.jar src/META-INF/MANIFEST.MF -C src/resource/ index.html -C target/production/ppt-remote/ ai/geissler/Main.class 
 
 ---
