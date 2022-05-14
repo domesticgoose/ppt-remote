@@ -32,26 +32,27 @@ public class Main {
         while (true) {
             Socket socket = ss.accept();
 
-            DataInputStream dis = new DataInputStream(socket.getInputStream());
-            InputStreamReader in = new InputStreamReader(dis, StandardCharsets.UTF_8);
+            try (DataInputStream dis = new DataInputStream(socket.getInputStream());
+                 InputStreamReader in = new InputStreamReader(dis, StandardCharsets.UTF_8)) {
 
-            char[] chars = new char[128];
-            in.read(chars);
+                char[] chars = new char[128];
+                in.read(chars);
 
-            String str = String.valueOf(chars);
-            str = str.lines().limit(2).collect(Collectors.joining("\n"));
-            System.out.println(str);
+                String str = String.valueOf(chars);
+                str = str.lines().limit(2).collect(Collectors.joining("\n"));
+                System.out.println(str);
 
-            String method = determineMethod(str);
-            String path = determinePath(str);
+                String method = determineMethod(str);
+                String path = determinePath(str);
 
-            switch (method) {
-                case "GET":
-                    handleGetReq(socket);
-                    break;
-                case "POST":
-                    handlePostReq(robot, path);
-                    break;
+                switch (method) {
+                    case "GET":
+                        handleGetReq(socket);
+                        break;
+                    case "POST":
+                        handlePostReq(robot, path);
+                        break;
+                }
             }
             socket.close();
         }
@@ -89,6 +90,7 @@ public class Main {
              BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
              InputStream resourceAsStream = ClassLoader.getSystemClassLoader().getResourceAsStream("index.html");
              InputStreamReader ir = new InputStreamReader(resourceAsStream, StandardCharsets.UTF_8)) {
+
             char[] charBuffer = new char[2048];
             ir.read(charBuffer);
             bufferedWriter.write("HTTP/2 200 OK\n" +
