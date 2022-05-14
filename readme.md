@@ -3,7 +3,7 @@
 ---
 
 ## What is ppt-remote for?
-ppt-remote is a simple app to control your PowerPoint Presentation with your phone.
+ppt-remote is a simple application that lets you control your PowerPoint presentation with your phone.
 
 ### Use
 
