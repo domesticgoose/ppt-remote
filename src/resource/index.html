@@ -8,27 +8,46 @@
     <title>Remote</title>
     <style>
         body{
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            width: 100vw;
+            max-height: 100vh;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         button{
-            font-size: 10rem;
-            padding: 3rem;
+            background: none;
+            border: none;
+            width: 100%;
+            height: 100%;
+            font-size: 30vh;
+            color: aliceblue;
+        }
+        #prev-button{
+            background: rgb(131,58,180);
+            background: linear-gradient(90deg, rgba(131,58,180,0.9) 0%, rgba(253,29,29,0.9) 50%, rgba(252,176,69,0.9) 100%);
+            text-shadow: 4px 4px 10px rgba(9,9,121,0.9);
+        }
+        #next-button{
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,0.9) 0%, rgba(9,9,121,0.9) 35%, rgba(0,212,255,0.9) 100%);
+            text-shadow: 4px 4px 10px rgba(253,29,29,0.9);
+
         }
     </style>
 </head>
 <body>
-<button style="width: 100vw; margin-bottom: 3px; display: block;" id="prev-button">⬆️</button>
-<button style="width: 100vw; margin-top: 3px; display: block;" id="next-button">⬇️</button>
+<button id="prev-button">↑</button>
+<button id="next-button">↓</button>
 
 <script>
-console.log("initializing...");
 let prevButton = document.querySelector("#prev-button");
 let nextButton = document.querySelector("#next-button");
-console.log("done.");
+
 prevButton.addEventListener("click", async () => {await fetch("/prev", {method: 'POST', headers: {"Cache-Control":"no-cache"}});});
 nextButton.addEventListener("click", async () => {await fetch("/next", {method: 'POST', headers: {"Cache-Control":"no-cache"}});});
-
 </script>
 </body>
 </html>
