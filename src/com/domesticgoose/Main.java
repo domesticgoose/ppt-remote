@@ -1,4 +1,4 @@
-package ai.geissler;
+package com.domesticgoose;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -9,7 +9,6 @@ import java.util.Enumeration;
 import java.util.stream.Collectors;
 
 public class Main {
-
     private static ServerSocket ss;
     private static Robot robot;
 

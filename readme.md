@@ -7,7 +7,7 @@ ppt-remote is a simple application that lets you control your PowerPoint present
 
 ### Use
 
-- Connect your Laptop to your Phone HotSpot
+- Connect your Laptop to your Phones HotSpot
 - Start the ppt-remote Application
 - Navigate to the specified ip on your phone
 - Jump between PowerPoint Pages via your phone
@@ -20,10 +20,10 @@ to run the following commands you must be at the project root
 
 ### Compilation
 
-> javac -d target/production/ppt-remote/ -verbose -encoding UTF-8 src/ai/geissler/Main.java
+> javac -d target/production/ppt-remote/ -verbose -encoding UTF-8 src/com/domesticgoose/Main.java
 
 #### Packaging the App into a .jar
-> jar -cvfm ppt-remote.jar src/META-INF/MANIFEST.MF -C src/resource/ index.html -C target/production/ppt-remote/ ai/geissler/Main.class 
+> jar -cvfm ppt-remote.jar src/META-INF/MANIFEST.MF -C src/resource/ index.html -C target/production/ppt-remote/ com/domesticgoose/Main.class 
 
 ---
 

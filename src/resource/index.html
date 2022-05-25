@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Remote</title>
+    <title>ppt-remote</title>
     <style>
         body{
             box-sizing: border-box;
@@ -44,8 +44,10 @@
 let prevButton = document.querySelector("#prev-button");
 let nextButton = document.querySelector("#next-button");
 
-prevButton.addEventListener("click", async () => {await fetch("/prev", {method: 'POST', headers: {"Cache-Control":"no-cache"}});});
-nextButton.addEventListener("click", async () => {await fetch("/next", {method: 'POST', headers: {"Cache-Control":"no-cache"}});});
+prevButton.addEventListener("click",
+    async () => {await fetch("/prev", {method: 'POST', headers: {"Cache-Control":"no-cache"}});});
+nextButton.addEventListener("click",
+    async () => {await fetch("/next", {method: 'POST', headers: {"Cache-Control":"no-cache"}});});
 </script>
 </body>
 </html>
